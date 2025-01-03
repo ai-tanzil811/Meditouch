@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Portal - MediTouch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="doctor_call.css">
+</head>
+
+<body>
+    <header>
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h4 m-0">MediTouch - Doctor Portal</h1>
+            <a href="doctor.html" class="btn btn-light btn-sm">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="container-fluid my-4">
+        <div class="row justify-content-center">
+        
+            <div class="col-md-7 mb-4">
+                <div class="video-container">
+                    <video id="video-call" autoplay muted></video>
+                    <div class="video-controls mt-3 d-flex justify-content-center gap-3">
+                        <button class="btn btn-danger">End Call</button>
+                        <button class="btn btn-secondary">Mute</button>
+                        <button class="btn btn-secondary">Turn Off Camera</button>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="col-md-5">
+                <div class="prescription-container">
+                    <h5 class="text-white">Write Prescription</h5>
+                    <form class="prescription-form" id="prescription-form">
+                        <div class="mb-3">
+                            <label for="patient-name" class="form-label">Patient Name</label>
+                            <input type="text" id="patient-name" class="form-control" placeholder="Enter patient name" required>
+                        </div>
+                       
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" id="age" class="form-control" placeholder="Enter patient age" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="prescription" class="form-label">Prescription Details</label>
+                            <textarea id="prescription" class="form-control" rows="5" placeholder="Write the prescription here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Prescription</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="mb-0">© 2025 MediTouch. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("prescription-form");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const patientName = document.getElementById("patient-name").value;
+            const prescription = document.getElementById("prescription").value;
+            alert(`Prescription for ${patientName} saved successfully!`);
+            form.reset();
+        });
+    </script>
+</body>
+
+</html>
